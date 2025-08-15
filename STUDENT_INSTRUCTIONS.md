@@ -29,17 +29,112 @@ This implements the **Evaluator-Optimizer** pattern you learned about in [Sessio
 ### Setup Instructions
 
 #### Option 1: Google Colab (Recommended)
-1. Open `agent_capstone_exercises.ipynb` in Google Colab
-2. Click the 🔑 key icon in the left sidebar
-3. Add secret: `GEMINI_API_KEY` with your API key
-4. Enable notebook access for the secret
-5. Run all setup cells
+1. **Open the notebook**: Upload `agent_capstone_exercises.ipynb` to Google Colab or open directly
+2. **Add API Key Secret**:
+   - Click the 🔑 key icon in the left sidebar
+   - Add new secret: `GEMINI_API_KEY` 
+   - Paste your API key from https://ai.google.dev/
+   - **Important**: Enable "Notebook access" for this secret
+3. **Run Setup**: Execute all setup cells in order (they'll install packages automatically)
+4. **Start Exercises**: Begin with Exercise 1
 
-#### Option 2: Local Jupyter
-1. Install required packages: `pip install google-generativeai beautifulsoup4 requests`
-2. Set environment variable: `export GEMINI_API_KEY=your_key_here`
-3. Open `agent_capstone_exercises.ipynb` in Jupyter
-4. Run all setup cells
+#### Option 2: Local Development (VS Code, Cursor, PyCharm, etc.)
+
+**Step 1: Project Setup**
+```bash
+# Clone or download the project files
+# Navigate to the project directory
+cd path/to/BlogWriterExercise
+```
+
+**Step 2: Install Dependencies**
+```bash
+# Install all required packages
+pip install -r requirements.txt
+
+# Alternative: Install packages individually
+pip install google-generativeai beautifulsoup4 requests jupyter ipykernel
+```
+
+**Step 3: Set Up API Key (Choose one method)**
+
+**Method A: Environment Variable (Recommended)**
+```bash
+# Linux/Mac
+export GEMINI_API_KEY=your_actual_api_key_here
+
+# Windows (Command Prompt)
+set GEMINI_API_KEY=your_actual_api_key_here
+
+# Windows (PowerShell)
+$env:GEMINI_API_KEY="your_actual_api_key_here"
+```
+
+**Method B: VS Code Settings**
+```json
+// In your workspace settings.json
+{
+    "terminal.integrated.env.linux": {
+        "GEMINI_API_KEY": "your_actual_api_key_here"
+    },
+    "terminal.integrated.env.windows": {
+        "GEMINI_API_KEY": "your_actual_api_key_here"
+    },
+    "terminal.integrated.env.osx": {
+        "GEMINI_API_KEY": "your_actual_api_key_here"
+    }
+}
+```
+
+**Method C: .env file (Optional)**
+```bash
+# Create .env file in project root
+echo "GEMINI_API_KEY=your_actual_api_key_here" > .env
+```
+
+**Step 4: Launch Jupyter**
+```bash
+# Start Jupyter Notebook
+jupyter notebook agent_capstone_exercises.ipynb
+
+# Or use Jupyter Lab
+jupyter lab agent_capstone_exercises.ipynb
+```
+
+**Step 5: Verify Setup**
+- Run the first few cells to verify everything works
+- The configuration cell will prompt for API key if not found in environment
+
+### Troubleshooting Common Issues
+
+#### API Key Problems
+- **Issue**: `GEMINI_API_KEY not found`
+- **Solution**: Double-check you've set the environment variable or Colab secret correctly
+- **Test**: In a Python cell, run `import os; print(os.environ.get('GEMINI_API_KEY'))` (should not show None)
+
+#### Package Installation Issues
+```bash
+# If packages fail to install
+pip install --upgrade pip
+pip install --force-reinstall -r requirements.txt
+
+# For specific import errors
+pip install --upgrade google-generativeai
+```
+
+#### Jupyter Notebook Issues
+```bash
+# If kernel doesn't start
+jupyter kernelspec list
+python -m ipykernel install --user --name=python3
+
+# Restart Jupyter after installing packages
+```
+
+#### VS Code Jupyter Issues
+- Install the Jupyter extension for VS Code
+- Select the correct Python interpreter (Ctrl+Shift+P → "Python: Select Interpreter")
+- Restart VS Code after installing packages
 
 ---
 

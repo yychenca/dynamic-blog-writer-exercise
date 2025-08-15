@@ -1,0 +1,23 @@
+# AI Agents Capstone Project Requirements
+# Compatible with Python 3.8+
+
+# Core LLM Integration
+google-generativeai>=0.7.0
+
+# Web Scraping and Search
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+
+# Data Processing
+pathlib2>=2.3.7; python_version < "3.4"
+
+# Jupyter Notebook Support (for local development)
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Optional: Enhanced display and formatting
+ipython>=8.12.0
+markdown>=3.4.0
+
+# Development Tools (optional)
+python-dotenv>=1.0.0  # For local .env file management
